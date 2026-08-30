@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS prato (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    categoria VARCHAR(255) NOT NULL,
+    preco DOUBLE NOT NULL,
+    codigo INT NOT NULL,
+    porcao VARCHAR(255) NOT NULL,
+    descricao VARCHAR(500) NOT NULL,
+    tags VARCHAR(255) NOT NULL
+    );

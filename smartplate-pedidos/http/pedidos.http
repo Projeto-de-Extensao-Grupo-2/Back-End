@@ -1,0 +1,39 @@
+### Listar todos os pedidos
+GET http://localhost:8080/pedidos
+
+### Filtrar pedidos (todos os filtros são opcionais e combináveis)
+GET http://localhost:8080/pedidos?status=EM_PREPARO
+
+###
+GET http://localhost:8080/pedidos?mesa=2&garcom=2
+
+### data no formato yyyy-MM-dd (pega o dia inteiro)
+GET http://localhost:8080/pedidos?data=2026-10-18
+
+### Criar pedido (garcomId é opcional)
+POST http://localhost:8080/pedidos
+Content-Type: application/json
+
+{
+  "mesaId": 3,
+  "garcomId": 1
+}
+
+### Criar pedido sem garçom
+POST http://localhost:8080/pedidos
+Content-Type: application/json
+
+{
+  "mesaId": 3
+}
+
+### Alterar status do pedido (RECEBIDO, EM_PREPARO, PRONTO, ENTREGUE)
+PATCH http://localhost:8080/pedidos/1/status
+Content-Type: application/json
+
+{
+  "status": "EM_PREPARO"
+}
+
+### Deletar pedido (remove os itens antes)
+DELETE http://localhost:8080/pedidos/1

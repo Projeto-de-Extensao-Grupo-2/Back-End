@@ -2,6 +2,7 @@ package school.sptech.exemplojwt.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
+@Schema(description = "Dados públicos de um usuário")
 public class UsuarioListarDto {
 
     @Schema(description = "Id do usuário", example = "1")

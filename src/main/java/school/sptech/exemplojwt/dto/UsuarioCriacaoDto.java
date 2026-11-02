@@ -6,9 +6,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+@Schema(description = "Dados para cadastro de um usuário")
 public class UsuarioCriacaoDto {
 
   @Size(min = 3, max = 100)
+  @Schema(description = "Nome completo do usuário (3 a 100 caracteres)", example = "John Doe")
   private String nome;
 
   @Email

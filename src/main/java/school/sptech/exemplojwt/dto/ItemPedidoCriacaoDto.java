@@ -1,22 +1,29 @@
 package school.sptech.exemplojwt.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+@Schema(description = "Dados para adicionar um item a um pedido")
 public class ItemPedidoCriacaoDto {
 
         @NotNull(message = "O pedido é obrigatório")
+        @Schema(description = "ID do pedido que receberá o item", example = "10")
         private Long pedidoId;
 
         @NotNull(message = "O produto é obrigatório")
+        @Schema(description = "ID do produto (deve estar ativo)", example = "4")
         private Long produtoId;
 
         @NotNull(message = "A quantidade é obrigatória")
         @Min(value = 1, message = "A quantidade deve ser no mínimo 1")
+        @Schema(description = "Quantidade do produto (mínimo 1)", example = "2")
         private Integer quantidade;
 
         @Size(max = 255, message = "A observação deve ter no máximo 255 caracteres")
+        @Schema(description = "Observação do cliente (máx. 255 caracteres)", example = "Sem cebola")
         private String observacao;
 
         public Long getPedidoId() { return pedidoId; }

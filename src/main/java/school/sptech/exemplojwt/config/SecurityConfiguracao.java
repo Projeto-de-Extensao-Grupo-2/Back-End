@@ -39,14 +39,7 @@ public class SecurityConfiguracao {
     @Value("${cors.allowedOrigins:http://localhost:5173}")
     private List<String> corsAllowedOrigins;
 
-    private static final String[] URLS_PERMITIDAS = {
-            "/fichas-tecnicas/**",
-            "/ingredientes/**",
-            "/itens-pedido/**",
-            "/mesas/**",
-            "/pedidos/**",
-            "/produtos/**",
-            "/usuarios/**",
+    private static final String[] URLS_PUBLICAS = {
             "/swagger-ui/**",
             "/swagger-ui.html",
             "/v3/api-docs/**",
@@ -61,7 +54,9 @@ public class SecurityConfiguracao {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(URLS_PERMITIDAS).permitAll()
+                        .requestMatchers(URLS_PUBLICAS).permitAll()
+                        .requestMatchers(HttpMethod.POST, "/usuarios/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/usuarios").permitAll() // cadastro, se for público
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(handling -> handling

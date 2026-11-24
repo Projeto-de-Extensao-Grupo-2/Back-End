@@ -14,7 +14,7 @@ import school.sptech.exemplojwt.repository.PedidoRepository;
 import java.util.List;
 
 @Service
-public class MesaService {
+public class  MesaService {
 
     private final MesaRepository mesaRepository;
     private final PedidoRepository pedidoRepository;
